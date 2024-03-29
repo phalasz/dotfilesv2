@@ -33,7 +33,7 @@ HOT="${ORANGE}\xF0\x9F\x94\xA5${NC}"
 WARNING="${RED}\xF0\x9F\x9A\xA8${NC}"
 RIGHT_ANGLE="${GREEN}\xE2\x88\x9F${NC}"
 
-DOTFILES_LOG = "$HOME/.dotfiles.log"
+DOTFILES_LOG="$HOME/.dotfiles.log"
 
 set -e
 
@@ -49,7 +49,7 @@ function _task {
     fi
 
     TASK=$1
-    printf "${BLACK} [ ] ${TASK} \n${LRED}"
+    printf "${LIGHTGRAY} [ ] ${TASK} \n${LRED}"
 }
 
 function _cmd {
@@ -89,7 +89,7 @@ function ubuntu_setup() {
         _cmd "sudo apt-add-repository -y ppa:ansible/ansible"
         _cmd "sudo apt update"
         _cmd "sudo apt install -y ansible"
-        _cmd "sudo ap install python3-argcomplete"
+        _cmd "sudo apt install python3-argcomplete"
         _cmd "sudo activate-global-python-argcomplete3"
     fi
 
@@ -110,6 +110,7 @@ function ubuntu_setup() {
 }
 
 function macosx_setup() {
+    echo "Not implemented"
     # TODO
 }
 
