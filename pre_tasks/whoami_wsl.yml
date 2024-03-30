@@ -16,3 +16,5 @@
 - name: Debug
   ansible.builtin.debug:
     msg: "wsl_host_user: {{ wsl_host_user }}"
+
+# vi:ft=yaml.ansible
