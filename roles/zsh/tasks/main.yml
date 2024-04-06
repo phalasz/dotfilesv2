@@ -1,0 +1,17 @@
+---
+- name: "ZSH | Run tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: system_distribution_config.stat.exits
+
+- name: "ZSH | Set public"
+  ansible.builtin.template:
+   dest: "{{ ansible_user_dir }}/.zsh_public"
+   src: zsh_public.j2
+   mode: "0644"
+
+- name: "ZSH | Set private"
+  ansible.builtin.template:
+   dest: "{{ ansible_user_dir }}/.zsh_private"
+   src: zsh_private.j2
+   mode: "0644"
+  no_log: true

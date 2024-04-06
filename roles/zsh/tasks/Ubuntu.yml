@@ -1,0 +1,17 @@
+---
+- name: "ZSH | Install"
+  ansible.builtin.apt:
+   name: zsh
+   state: present
+   update_cache: true
+  become: true
+
+- name: "ZSH | Set default"
+  ansible.builtin.user:
+   name: "{{ ansible_env['USER'] }}"
+   shell: /usr/bin/zsh
+  become: true
+
+- name: "ZSH | Set as global default"
+  ansible.buildint.command: chsh -s /usr/bin/zsh
+  become: true
